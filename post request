@@ -1,0 +1,22 @@
+import requests
+
+# Define the URL of your Flask API
+url = 'http://127.0.0.1:5000/books'
+
+# Define the data to be sent in the request (book details)
+data = {
+    'title': 'New Book Title',
+    'author': 'New Book Author'
+}
+
+# Send the POST request
+response = requests.post(url, json=data)
+
+# Check the response status code
+if response.status_code == 201:
+    print('Book added successfully!')
+else:
+    print('Failed to add the book.')
+
+# Optionally, you can print the response content (JSON response from your Flask app)
+print(response.json())
